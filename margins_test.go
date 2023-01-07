@@ -33,6 +33,10 @@ func (ts *TestSuite) TestGetOrderMargins(t *testing.T) {
 		t.Errorf("Incorrect tradingsymbol, expected INFY, got: %v", compactOrderResp[0].TradingSymbol)
 	}
 
+	if compactOrderResp[0].Type != "equity" {
+		t.Errorf("Incorrect order type, expected equity, got: %v", compactOrderResp[0].Type)
+	}
+
 	if compactOrderResp[0].Total == 0 {
 		t.Errorf("Incorrect compact total margins, got: %v", compactOrderResp[0].Total)
 	}
